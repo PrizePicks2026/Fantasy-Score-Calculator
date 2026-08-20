@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fantasy Score Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-nav">
+    <a class="nav-link-btn" href="https://prizepicks2026.github.io/Playthrough-Calculator/">📊 Playthrough Calculator</a>
+    <a class="nav-link-btn" href="https://prizepicks2026.github.io/Reboots-Policy/">📄 Reboots Policy</a>
+  </div>
+
+  <header class="top">
+    <div>
+      <p class="brand-eyebrow">// Live Scoring Engine</p>
+      <h1>Fantasy Score Calculator</h1>
+      <p class="subhead">Enter stat counts for any sport and generate a member-ready spiel instantly. Point values are fixed reference defaults pulled from each platform's official breakdown. Only sports with a confirmed breakdown photo are listed — more get added as you send them.</p>
+    </div>
+    <button class="ref-btn" id="openRef">📇 Reference card</button>
+  </header>
+
+  <div class="sport-search">
+    <span class="sport-search-icon">🔍</span>
+    <input type="text" id="sportSearch" placeholder="Search sports…" autocomplete="off">
+    <button class="sport-search-btn" id="sportSearchBtn" title="Jump to first match">Find</button>
+  </div>
+
+  <div class="sport-rail" id="sportRail"></div>
+
+  <div class="controls-row" id="controlsRow"></div>
+
+  <div class="grid">
+    <section class="panel">
+      <div class="panel-head">
+        <h2 id="statTitle">Stat Sheet</h2>
+        <span class="tag">points × count = total</span>
+      </div>
+      <div id="squaresNote" class="squares-note" style="display:none;"></div>
+      <table class="stat-table">
+        <thead>
+          <tr><th>Stat Type</th><th>Weight</th><th>Count</th><th style="text-align:right">Subtotal</th></tr>
+        </thead>
+        <tbody id="statBody"></tbody>
+      </table>
+    </section>
+
+    <section class="panel spiel-panel">
+      <div class="panel-head">
+        <h2>Spiel Generator</h2>
+        <span class="tag" id="spielTag">Tennis</span>
+      </div>
+      <div class="spiel-body" id="spielBody"></div>
+      <div class="total-row" style="padding:0 18px 16px;">
+        <span class="total-label">✅ Total FS</span>
+        <span class="total-num" id="totalNum">0 pts</span>
+      </div>
+      <div class="spiel-actions">
+        <button id="copyBtn">Copy spiel</button>
+        <button id="textBtn">View as text</button>
+      </div>
+      <textarea class="raw-textarea" id="rawText" readonly></textarea>
+    </section>
+  </div>
+
+  <footer class="note">
+    Point values are fixed reference templates modeled after common single-player fantasy scoring systems — cross-check them against your platform's official rulebook before sending a spiel to members.
+  </footer>
+</div>
+
+<div class="modal-overlay" id="refModal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeRef">✕</button>
+    <div class="modal-img-scroll">
+      <img id="refImg" src="" alt="Fantasy score breakdown reference">
+    </div>
+    <p class="modal-caption" id="refCaption"></p>
+    <p class="modal-caption" style="opacity:.6">Reference layout agents can send to members — the Spiel Generator reproduces this exact line format.</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
